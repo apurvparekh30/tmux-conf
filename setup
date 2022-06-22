@@ -1,0 +1,22 @@
+export KUBECONFIG=/etc/kubernetes/admin.conf
+alias k="kubectl"
+alias ll="ls -ltra"
+
+rpm --quiet --query bash-completion || yum -q -y install bash-completion
+rpm --quiet --query less || yum -q -y install less
+source /usr/share/bash-completion/bash_completion
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
+complete -F __start_kubectl k
+rpm --quiet --query tmux || yum -q -y install tmux
+wget -q -O /root/.tmux.conf https://raw.githubusercontent.com/apurvparekh30/tmux-conf/main/tmux.conf
+
+
+alias azmsk8ssubscription="az account set --subscription Core-STACK-CoreNet-DEV"
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+sudo tdnf -q install azure-cli
+wget https://download.docker.com/linux/static/stable/x86_64/docker-20.10.9.tgz
+tar  -xzvf docker-20.10.9.tgz
+cp docker/* /usr/bin/
+sudo dockerd &
