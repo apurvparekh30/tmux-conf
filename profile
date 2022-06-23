@@ -1,3 +1,4 @@
+export TERM=linux
 export KUBECONFIG=/etc/kubernetes/admin.conf
 alias k="kubectl"
 alias ll="ls -ltra"
