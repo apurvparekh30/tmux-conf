@@ -9,6 +9,7 @@ source /usr/share/bash-completion/bash_completion
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 complete -F __start_kubectl k
 rpm --quiet --query tmux || yum -q -y install tmux
-wget -q -O /root/.tmux.conf https://raw.githubusercontent.com/apurvparekh30/tmux-conf/main/tmux.conf
-wget -q -O /root/.cloudsetup https://raw.githubusercontent.com/apurvparekh30/tmux-conf/main/cloudsetup
+wget -q -O -nc /root/.tmux.conf https://raw.githubusercontent.com/apurvparekh30/tmux-conf/main/tmux.conf
+wget -q -O -nc /root/.cloudsetup https://raw.githubusercontent.com/apurvparekh30/tmux-conf/main/cloudsetup
+wget -q -O -nc /usr/bin/yq https://github.com/mikefarah/yq/releases/download/v4.25.3/yq_linux_amd64 && chmod +x /usr/bin/yq
 
